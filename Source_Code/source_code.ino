@@ -2,7 +2,7 @@
 const int IN_3=12;
 const int IN_4=13;
 const int EN_right=11; //speed control
-const int offset_right = 50;
+const int offset_right = 0;
 
 //MOTOR Left
 const int IN_1=8;
