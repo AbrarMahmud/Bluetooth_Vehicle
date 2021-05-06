@@ -2,11 +2,13 @@
 const int IN_3=12;
 const int IN_4=13;
 const int EN_right=11; //speed control
+const int offset_right = 50;
 
 //MOTOR Left
 const int IN_1=8;
 const int IN_2=9;
 const int EN_left=10; //speed control
+const int offset_left = 0;
 
 //Variable
 char command;
@@ -33,7 +35,8 @@ if(Serial.available()>0) {
     right();
     break;
    case 'B':
-    break_();
+    //break_();
+    reverse();
     break;
 
   }
@@ -46,32 +49,32 @@ void forward()
 {
   digitalWrite(IN_1,HIGH);
   digitalWrite(IN_2,LOW);
-  analogWrite(EN_left,speed_);
+  analogWrite(EN_left,speed_+offset_left);
   
   digitalWrite(IN_3,HIGH);
   digitalWrite(IN_4,LOW);
-  analogWrite(EN_right,speed_);
+  analogWrite(EN_right,speed_+offset_right);
   
 }
 void left()
 {
   digitalWrite(IN_1,LOW);
   digitalWrite(IN_2,HIGH);
-  analogWrite(EN_left,speed_);
+  analogWrite(EN_left,speed_+offset_left);
   
   digitalWrite(IN_3,HIGH);
   digitalWrite(IN_4,LOW);
-  analogWrite(EN_right,speed_);
+  analogWrite(EN_right,speed_+offset_right);
 }
 void right()
 {
   digitalWrite(IN_1,HIGH);
   digitalWrite(IN_2,LOW);
-  analogWrite(EN_left,speed_);
+  analogWrite(EN_left,speed_+offset_left);
   
   digitalWrite(IN_3,LOW);
   digitalWrite(IN_4,HIGH);
-  analogWrite(EN_right,speed_);
+  analogWrite(EN_right,speed_+offset_right);
 }
 void break_()
 {
@@ -97,10 +100,10 @@ void reverse()
 {
   digitalWrite(IN_1,LOW);
   digitalWrite(IN_2,HIGH);
-  analogWrite(EN_left,speed_);
+  analogWrite(EN_left,speed_+offset_left);
   
   digitalWrite(IN_3,LOW);
   digitalWrite(IN_4,HIGH);
-  analogWrite(EN_right,speed_);
+  analogWrite(EN_right,speed_+offset_right);
   
 }
